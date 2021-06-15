@@ -40,7 +40,7 @@ jobs:
           output-file-path: benchmark.json
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-push: true
-          alert-threshold: "100%"
+          # alert-threshold: "100%"
           fail-threshold: "200%"
-          comment-on-alert: true
+          # comment-on-alert: true
           comment-always: true
