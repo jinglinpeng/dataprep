@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1623795345451,
+  "lastUpdate": 1623795989072,
   "repoUrl": "https://github.com/jinglinpeng/dataprep",
   "entries": {
     "DataPrep.EDA Benchmarks": [
@@ -27,6 +27,33 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.06038567742975435",
             "extra": "mean: 6.18275177459999 sec\nrounds: 5"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "jinglinpeng",
+            "username": "jinglinpeng"
+          },
+          "committer": {
+            "name": "jinglinpeng",
+            "username": "jinglinpeng"
+          },
+          "id": "e90d9ca16087d1bb27d313f596891f04efcbe8c1",
+          "message": "workflows",
+          "timestamp": "2021-06-15T21:35:11Z",
+          "url": "https://github.com/jinglinpeng/dataprep/pull/2/commits/e90d9ca16087d1bb27d313f596891f04efcbe8c1"
+        },
+        "date": 1623795987822,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "dataprep/tests/benchmarks/eda.py::test_create_report",
+            "value": 0.19743631726670977,
+            "unit": "iter/sec",
+            "range": "stddev: 0.023507125972445402",
+            "extra": "mean: 5.064924294800005 sec\nrounds: 5"
           }
         ]
       }
