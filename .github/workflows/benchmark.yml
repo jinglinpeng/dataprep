@@ -28,10 +28,10 @@ jobs:
       - name: Run benchmark
         run: |
           pip install poetry
-          pip install pytest
-          pip install pytest-benchmark
+          poetry config virtualenvs.in-project true
           poetry install
-      - run: pytest dataprep/tests/benchmarks/eda.py --benchmark-json benchmark.json
+          poetry run pip install pytest-benchmark
+      - run: poetry run pytest dataprep/tests/benchmarks/eda.py --benchmark-json benchmark.json
       - name: Store benchmark result
         uses: rhysd/github-action-benchmark@v1
         with:
