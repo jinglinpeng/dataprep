@@ -43,3 +43,4 @@ jobs:
           alert-threshold: "110%"
           fail-threshold: "110%"
           comment-always: true
+          fail-on-alert: true
