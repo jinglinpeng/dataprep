@@ -1,10 +1,11 @@
 #%%
 from functools import partial
+import time
 from ...datasets import load_dataset
 from ...eda import create_report
 
-
 def report_func(df, **kwargs):
+    time.sleep(5)
     create_report(df, **kwargs)
 
 
