@@ -28,6 +28,8 @@ jobs:
       - name: Run benchmark
         run: |
           pip install poetry
+          pip install pytest
+          pip install pytest-benchmark
           poetry install
       - run: pytest tests/benchmarks/eda.py --benchmark-json benchmark.json
       - name: Store benchmark result
