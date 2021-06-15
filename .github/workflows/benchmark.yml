@@ -41,5 +41,5 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-push: false
           alert-threshold: "150%"
-          fail-threshold: "200%"
+          fail-threshold: "150%"
           comment-always: true
