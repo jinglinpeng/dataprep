@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu-latest, macos-latest]
+        os: [ ubuntu-latest]
         python: ['3.7']
     steps:
       - uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
           pip install pytest
           pip install pytest-benchmark
           poetry install
-      - run: pytest tests/benchmarks/eda.py --benchmark-json benchmark.json
+      - run: pytest dataprep/tests/benchmarks/eda.py --benchmark-json benchmark.json
       - name: Store benchmark result
         uses: rhysd/github-action-benchmark@v1
         with:
