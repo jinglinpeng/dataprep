@@ -6,6 +6,7 @@ from ...eda import create_report
 
 def report_func(df, **kwargs):
     time.sleep(2)
+    
     create_report(df, **kwargs)
 
 
