@@ -32,6 +32,14 @@ jobs:
           poetry install
           poetry run pip install pytest-benchmark
       - run: poetry run pytest dataprep/tests/benchmarks/eda.py --benchmark-json benchmark.json
+      
+      # Download previous benchmark result from cache (if exists)
+      - name: Download previous benchmark data
+        uses: actions/cache@v1
+        with:
+          path: ./cache
+          key: ${{ runner.os }}-benchmark
+      
       - name: Store benchmark result
         uses: rhysd/github-action-benchmark@v1
         with:
@@ -39,6 +47,7 @@ jobs:
           tool: 'pytest'
           output-file-path: benchmark.json
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          external-data-json-path: ./cache/benchmark-data.json
           auto-push: false
           alert-threshold: "110%"
           fail-threshold: "110%"
