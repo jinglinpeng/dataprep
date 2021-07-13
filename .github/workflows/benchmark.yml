@@ -3,7 +3,6 @@ name: Performance Benchmarks
 on:
   push:
     branches:
-      - master
       - develop
   pull_request:
     branches:
@@ -16,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu-latest]
+        os: [ ubuntu-latest, macos-latest]
         python: ['3.7']
     steps:
       - uses: actions/checkout@v2
@@ -33,23 +32,31 @@ jobs:
           poetry run pip install pytest-benchmark
       - run: poetry run pytest dataprep/tests/benchmarks/eda.py --benchmark-json benchmark.json
       
-      # Download previous benchmark result from cache (if exists)
-      - name: Download previous benchmark data
-        uses: actions/cache@v1
-        with:
-          path: ./cache
-          key: ${{ runner.os }}-benchmark
-      
-      - name: Store benchmark result
+      - name: show benchmark result for pull request
+        if: ${{ github.event_name == 'pull_request'}}
         uses: rhysd/github-action-benchmark@v1
         with:
           name: DataPrep.EDA Benchmarks
           tool: 'pytest'
           output-file-path: benchmark.json
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          external-data-json-path: ./cache/benchmark-data.json
           auto-push: false
-          alert-threshold: "110%"
-          fail-threshold: "110%"
+          save-data-file: false
+          alert-threshold: "100%"
+          fail-threshold: "200%"
+          comment-always: true
+          fail-on-alert: true
+      
+        - name: Store benchmark result for push operator
+        if: ${{ github.event_name == 'push'}}
+        uses: rhysd/github-action-benchmark@v1
+        with:
+          name: DataPrep.EDA Benchmarks
+          tool: 'pytest'
+          output-file-path: benchmark.json
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          auto-push: true
+          alert-threshold: "100%"
+          fail-threshold: "200%"
           comment-always: true
           fail-on-alert: true
