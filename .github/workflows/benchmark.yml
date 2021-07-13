@@ -47,7 +47,7 @@ jobs:
           comment-always: true
           fail-on-alert: true
       
-        - name: Store benchmark result for push operator
+      - name: Store benchmark result for push operator
         if: ${{ github.event_name == 'push'}}
         uses: rhysd/github-action-benchmark@v1
         with:
