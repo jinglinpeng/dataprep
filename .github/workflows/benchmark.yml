@@ -32,7 +32,7 @@ jobs:
           poetry run pip install pytest-benchmark
       - run: poetry run pytest dataprep/tests/benchmarks/eda.py --benchmark-json benchmark.json
       
-      - name: show benchmark result for pull request
+      - name: Show benchmark result for pull request
         if: ${{ github.event_name == 'pull_request'}}
         uses: rhysd/github-action-benchmark@v1
         with:
@@ -42,7 +42,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-push: false
           save-data-file: false
-          alert-threshold: "100%"
           fail-threshold: "200%"
           comment-always: true
           fail-on-alert: true
