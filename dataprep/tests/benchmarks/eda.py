@@ -4,7 +4,7 @@ from ...datasets import load_dataset
 from ...eda import create_report
 
 def report_func(df, **kwargs):
-    for _ in range(1):
+    for _ in range(3):
         create_report(df, **kwargs)
 
 
