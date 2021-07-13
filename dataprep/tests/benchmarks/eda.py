@@ -5,8 +5,7 @@ from ...datasets import load_dataset
 from ...eda import create_report
 
 def report_func(df, **kwargs):
-    time.sleep(2)
-    
+    time.sleep(6)
     create_report(df, **kwargs)
 
 
