@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1626201769435,
+  "lastUpdate": 1626202920435,
   "repoUrl": "https://github.com/jinglinpeng/dataprep",
   "entries": {
     "DataPrep.EDA Benchmarks": [
@@ -143,6 +143,37 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.11614628791910482",
             "extra": "mean: 17.915786742600005 sec\nrounds: 5"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jlpengcs@gmail.com",
+            "name": "Jinglin Peng",
+            "username": "jinglinpeng"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a9884d2c886e8149c854f0d86c3563bd28d083d5",
+          "message": "Merge pull request #3 from jinglinpeng/ci3\n\nll",
+          "timestamp": "2021-07-13T11:56:58-07:00",
+          "tree_id": "fa6ec4626518638683363005397a6578cf220916",
+          "url": "https://github.com/jinglinpeng/dataprep/commit/a9884d2c886e8149c854f0d86c3563bd28d083d5"
+        },
+        "date": 1626202918848,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "dataprep/tests/benchmarks/eda.py::test_create_report",
+            "value": 0.05067963161916954,
+            "unit": "iter/sec",
+            "range": "stddev: 0.06755599388424413",
+            "extra": "mean: 19.731792991600013 sec\nrounds: 5"
           }
         ]
       }
